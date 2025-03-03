@@ -48,7 +48,7 @@ def combineData(names, brands, benchmarks,prices):
 def writeCSV(cpudata):
     with open('cpudata.csv', 'w') as cpufile:
         writer = csv.writer(cpufile, delimiter=',')
-        writer.writerow(["CPU Name","Brand" "Benchmark Score", "Price"]) 
+        writer.writerow(["CPU Name","Brand","Benchmark Score", "Price"]) 
         writer.writerows(cpudata)
     
 

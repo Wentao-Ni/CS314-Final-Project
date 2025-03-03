@@ -47,7 +47,7 @@ def combineData(names, brand,benchmarks,prices):
 def writeCSV(gpudata):
     with open('gpudata.csv', 'w') as gpufile:
         writer = csv.writer(gpufile, delimiter=',')
-        writer.writerow(["GPU Name", "Benchmark Score", "Price"]) 
+        writer.writerow(["GPU Name", "brand", "Benchmark Score", "Price"]) 
         writer.writerows(gpudata)
     
 
