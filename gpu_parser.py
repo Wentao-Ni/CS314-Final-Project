@@ -27,13 +27,21 @@ def getGPUPrice(soup):
     gpu_price_table.pop(0)
     return gpu_price_table
 
-def combineData(names, benchmarks,prices):
+def getGPUBrand(names):
+    brand_list = []
+    for name in names:
+        brand = name.split()[0]
+        brand_list.append(brand)
+    return brand_list
+
+def combineData(names, brand,benchmarks,prices):
     gpudata = []
     for i in range(len(names)):
-        temp = [names[i],benchmarks[i],prices[i]]
+        temp = [names[i],brand[i],benchmarks[i],prices[i]]
         gpudata.append(temp)
     
     return gpudata
+
 
 
 def writeCSV(gpudata):
@@ -52,8 +60,8 @@ def main():
         names = getGPUName(soup)
         benchmarks = getGPUBenchmark(soup)
         prices = getGPUPrice(soup)
-
-        gpudata = combineData(names,benchmarks,prices)
+        brands = getGPUBrand(names)
+        gpudata = combineData(names,brands,benchmarks,prices)
         writeCSV(gpudata)
 
 if __name__ == '__main__':

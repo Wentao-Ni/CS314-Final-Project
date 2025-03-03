@@ -65,18 +65,32 @@ def getSSDPrice(soup):
 
     return final_price_data 
 
-def combineData(names, benchmarks,prices):
+def getSSDBrand(names):
+    brand_list = []
+    for name in names:
+        brand = name.split()[0]
+        brand_list.append(brand)
+    return brand_list
+
+
+def getSSDCapacity(names):
+    capacity_list = []
+    for name in names:
+        capacity = name.split()[-1]
+        capacity_list.append(capacity)
+    return capacity_list
+
+def combineData(names,barnd, capacity,benchmarks,prices):
     cpudata = []
     for i in range(len(names)):
-        temp = [names[i],benchmarks[i],prices[i]]
+        temp = [names[i],barnd[i],capacity[i],benchmarks[i],prices[i]]
         cpudata.append(temp)
-    
     return cpudata
 
 def writeCSV(cpudata):
     with open('ssddata.csv', 'w') as cpufile:
         writer = csv.writer(cpufile, delimiter=',')
-        writer.writerow(["CPU Name", "Benchmark Score", "Price"]) 
+        writer.writerow(["CPU Name", "Brand", "Capacity","Benchmark Score", "Price"]) 
         writer.writerows(cpudata)
 
 
@@ -90,8 +104,9 @@ def main():
         names = getSSDName(soup)
         benchmarks = getSSDBenchmark(soup)
         prices = getSSDPrice(soup)
-        
-        ssddata = combineData(names,benchmarks,prices)
+        brands = getSSDBrand(names)
+        capacity = getSSDCapacity(names)
+        ssddata = combineData(names,brands,capacity,benchmarks,prices)
         writeCSV(ssddata)
 
 

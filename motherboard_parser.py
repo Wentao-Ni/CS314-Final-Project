@@ -36,16 +36,61 @@ def getMotherboardPrice(soup):
             result.append(temp)
         else:
             result.append(val)
-    return len(result)
+    return result
 
+def getMotherboardBrand(soup):
+    motherboard_name = soup.find_all(class_ = "BarsItem__name___My7de")
+    motherboard_name_table = [name.text.strip() for name in motherboard_name]
+    brand_list = []
+    for name in motherboard_name_table:
+        brand = name.split()[0]
+        brand_list.append(brand)
+    return brand_list
+
+def flatList(two_d_list):
+    result = []
+    for one_d_list in two_d_list:
+        for val in one_d_list:
+            result.append(val)
+
+    return result
+
+def combineDataData(name, brand, score,price):
+    final = []
+    for i in range(len(name)):
+        temp = [name[i],brand[i],score[i],price[i]]
+        final.append(temp)
+    return final
+
+def writeCSV(motherboarddata):
+    with open('motherboarddata.csv', 'w') as cpufile:
+        writer = csv.writer(cpufile, delimiter=',')
+        writer.writerow(["Motherboard Name","Brand" "Score", "Price"]) 
+        writer.writerows(motherboarddata)
+    
+    
 def main():
-    #TODO: iterate through the pages to get the full list of the motherboard information
-    url = "https://versus.com/en/motherboard?page=7&sort=priceHighest"
-    soup = getPage(url)
-    if(not soup):
-        print("Can not access the page!")
-    else:
-        print(getMotherboardName(soup))
-
+    bast_url = "https://versus.com/en/motherboard?page={}&sort=priceHighest"
+    names = []
+    prices = []
+    brands = []
+    scores = []
+    for page in range(1,8):
+        cur_url = bast_url.format(page)
+        soup = getPage(cur_url)
+        if(not soup):
+            print("Can not access the page!")
+        else:
+            prices.append(getMotherboardPrice(soup))
+            names.append(getMotherboardName(soup))
+            brands.append(getMotherboardBrand(soup))
+            scores.append(getMotherboardScore(soup))
+    
+    brands = flatList(brands)
+    names = flatList(names)
+    prices = flatList(prices)
+    scores = flatList(scores)
+    motherboard_data = combineDataData(names,brands,scores,prices)
+    writeCSV(motherboard_data)
 if __name__ == "__main__":
     main()

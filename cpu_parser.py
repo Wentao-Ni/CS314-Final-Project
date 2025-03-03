@@ -21,16 +21,25 @@ def getCPUBenchmark(soup):
     cpu_benchmark_table = [benchmark.text.strip() for benchmark in cpu_benchmark]
     return cpu_benchmark_table
 
+def getCPUBrand(soup):
+    cpu_name = soup.find_all('a', class_='OneLinkNoTx')
+    cpu_name_table = [name.text.strip() for name in cpu_name]
+    brand_list = []
+    for name in cpu_name_table:
+        brand = name.split()[0]
+        brand_list.append(brand)
+    return brand_list
+
 def getCPUPrice(soup):
     cpu_price = soup.find_all(class_ = 'list-tiny-none')
     cpu_price_table = [price.text.strip() for price in cpu_price]
     cpu_price_table.pop(0)
     return cpu_price_table
 
-def combineData(names, benchmarks,prices):
+def combineData(names, brands, benchmarks,prices):
     cpudata = []
     for i in range(len(names)):
-        temp = [names[i],benchmarks[i],prices[i]]
+        temp = [names[i],brands[i], benchmarks[i],prices[i]]
         cpudata.append(temp)
     
     return cpudata
@@ -39,7 +48,7 @@ def combineData(names, benchmarks,prices):
 def writeCSV(cpudata):
     with open('cpudata.csv', 'w') as cpufile:
         writer = csv.writer(cpufile, delimiter=',')
-        writer.writerow(["CPU Name", "Benchmark Score", "Price"]) 
+        writer.writerow(["CPU Name","Brand" "Benchmark Score", "Price"]) 
         writer.writerows(cpudata)
     
 
@@ -52,8 +61,8 @@ def main():
         names = getCPUName(soup)
         benchmarks = getCPUBenchmark(soup)
         prices = getCPUPrice(soup)
-
-        cpudata = combineData(names,benchmarks,prices)
+        brands = getCPUBrand(soup)
+        cpudata = combineData(names,brands, benchmarks,prices)
         writeCSV(cpudata)
 
 if __name__ == '__main__':
