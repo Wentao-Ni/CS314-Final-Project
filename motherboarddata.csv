@@ -1,4 +1,4 @@
-Name,BrandScore,Price
+Name,Brand,Score,Price
 MSI MEG Z690 Godlike,MSI,88,2218
 MSI MEG X670E Godlike,MSI,81,1974
 ASRock Z690 Aqua OC,ASRock,84,1717
@@ -200,8 +200,8 @@ NZXT N7 Z790,NZXT,71,359
 Gigabyte Z790 Aero G,Gigabyte,76,358
 NZXT N7 B650E,NZXT,74,358
 MSI MEG B550 Unify,MSI,70,357
-Asus ROG Strix B850-I Gaming WiFi,Asus,78,357
 Asus Prime Z390-P,Asus,44,357
+Asus ROG Strix B850-I Gaming WiFi,Asus,78,357
 ASRock X870 Riptide WiFi,ASRock,80,356
 ASRock B550 Taichi Razer Edition,ASRock,73,356
 MSI MPG Z790 Edge WiFi,MSI,89,353
