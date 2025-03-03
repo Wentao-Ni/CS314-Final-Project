@@ -65,7 +65,7 @@ def combineDataData(name, brand, score,price):
 def writeCSV(motherboarddata):
     with open('motherboarddata.csv', 'w') as cpufile:
         writer = csv.writer(cpufile, delimiter=',')
-        writer.writerow(["Motherboard Name","Brand" "Score", "Price"]) 
+        writer.writerow(["Name","Brand" "Score", "Price"]) 
         writer.writerows(motherboarddata)
     
     

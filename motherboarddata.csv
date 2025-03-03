@@ -1,4 +1,4 @@
-Motherboard Name,BrandScore,Price
+Name,BrandScore,Price
 MSI MEG Z690 Godlike,MSI,88,2218
 MSI MEG X670E Godlike,MSI,81,1974
 ASRock Z690 Aqua OC,ASRock,84,1717
@@ -200,13 +200,13 @@ NZXT N7 Z790,NZXT,71,359
 Gigabyte Z790 Aero G,Gigabyte,76,358
 NZXT N7 B650E,NZXT,74,358
 MSI MEG B550 Unify,MSI,70,357
-Asus Prime Z390-P,Asus,44,357
 Asus ROG Strix B850-I Gaming WiFi,Asus,78,357
+Asus Prime Z390-P,Asus,44,357
 ASRock X870 Riptide WiFi,ASRock,80,356
 ASRock B550 Taichi Razer Edition,ASRock,73,356
 MSI MPG Z790 Edge WiFi,MSI,89,353
 Gigabyte Z790 Aorus Pro X WiFi7,Gigabyte,80,352
-MSI MAG X870 Tomahawk WiFi,MSI,89,351
+MSI MAG X870 Tomahawk WiFi,MSI,90,351
 ASRock Z890 Riptide WiFi,ASRock,87,351
 Gigabyte X870 Aorus Elite WiFi7 Ice,Gigabyte,83,351
 Gigabyte Z790I Aorus Ultra,Gigabyte,60,351
@@ -237,7 +237,7 @@ Asus ROG Strix B450-F Gaming,Asus,57,331
 Gigabyte X299 UD4 Pro,Gigabyte,59,330
 Asus ROG Strix B860-F Gaming WiFi,Asus,87,329
 Gigabyte Z690 Aero G,Gigabyte,85,328
-MSI MAG X670E Tomahawk WiFi,MSI,81,326
+MSI MAG X670E Tomahawk WiFi,MSI,82,326
 Asus ROG Strix B650E-F Gaming WiFi,Asus,74,326
 Asus TUF Gaming Z790-Pro WiFi,Asus,78,326
 Asus ROG Strix B850-A Gaming WiFi,Asus,86,326
@@ -528,7 +528,7 @@ MSI Pro B760M-A WiFi,MSI,66,181
 Gigabyte B860M DS3H,Gigabyte,57,180
 ASRock B660M Phantom Gaming 4,ASRock,50,180
 Asus Prime B760M-A D4,Asus,51,179
-Gigabyte B760 DS3H AC,Gigabyte,65,179
+Gigabyte B760 DS3H AC,Gigabyte,66,179
 MSI MAG B660M Bazooka DDR4,MSI,44,179
 Asus TUF Gaming B550-Pro,Asus,61,178
 MSI B450 Tomahawk Max II,MSI,60,178
